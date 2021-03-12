@@ -1,3 +1,12 @@
+/* CS 4310
+*  Group Assignment #1
+*  
+*  Group Members:
+*  Teresita Leonor S. Esver 
+*  Patriz Elaine M. Daroy
+*  Alexa Tang
+*/
+
 package Process-Creation_Hierarchy;
 import java.util.LinkedList;
 
