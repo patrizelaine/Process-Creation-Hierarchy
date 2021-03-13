@@ -19,10 +19,10 @@ public class TestAppV1{
                 break;
             }
         }
-        System.out.println("Create("+q.getParentIndex()+")\t/* creates child #"+p.getYoungestChildIndex()+" of PCB["+java.util.Arrays.asList(pcbArr).indexOf(p)+"] at PCB["+java.util.Arrays.asList(pcbArr).indexOf(q)+"]");
+        System.out.println("Create("+q.getParentIndex()+")\t/* creates child #"+p.getYoungestChildIndex()+" of PCB["+java.util.Arrays.asList(pcbArr).indexOf(p)+"] at PCB["+java.util.Arrays.asList(pcbArr).indexOf(q)+"] */");
     }
 
-    //destroy
+    //implement destroy(PCB_V1 p)
 
     private static void test1(){
         System.out.println("Executing test #1");
