@@ -14,7 +14,7 @@ public class PCB_V1
     private int index_parent;
     //any processes created by the parent process are
     //held in this linked list of child processes
-    LinkedList<PCB_V1> children;
+    LinkedList<Integer> children;
     //constructor
     public PCB_V1(int p_i)
     {
@@ -23,12 +23,12 @@ public class PCB_V1
     }
 
     //add child to linked list of chldren
-    public void addChild(int parentIndex)
+    public void addChild(int childIndex)
     {
-        children.add(new PCB_V1(parentIndex));
+        children.add(childIndex);
     }
     //get children of pcb
-    public LinkedList<PCB_V1> getChildren()
+    public LinkedList<Integer> getChildren()
     {
         return children;
     }
@@ -40,5 +40,9 @@ public class PCB_V1
 
     public int getParentIndex(){
         return this.index_parent;
+    }
+
+    public void removeFromLinkedList() {
+        children.remove(); //removes from head of list
     }
 }
