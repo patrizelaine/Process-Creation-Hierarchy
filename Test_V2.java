@@ -5,7 +5,7 @@ public class Test_V2 {
 	
 	public static void main(String[] args)
 	{
-		PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating an empty PCB
+		PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating first PCB
 		pcbArr2[0] = pcb0;
 		test1();
 	}
@@ -24,8 +24,8 @@ public class Test_V2 {
 						if(pcbArr2[j]==null)
 						{
 							pcbArr2[parentIndex].setFirst(j);
-							pcbArr2[j] = new PCB_V2(parentIndex, j, -1, -1);
-							System.out.println("1. Successfully created a child for process " + parentIndex);
+							pcbArr2[j] = new PCB_V2(parentIndex, -1, -1, -1);
+							System.out.println("Successfully created a child for process " + parentIndex);
 							break;
 						}
 					}
@@ -38,7 +38,7 @@ public class Test_V2 {
 						{
 							pcbArr2[checkChild].setOlder(j);	// updates the f_c older child
 							pcbArr2[j] = new PCB_V2(parentIndex, -1, checkChild, -1);	// creates a new child
-							System.out.println("2. Successfully created a child for process " + parentIndex);
+							System.out.println("Successfully created a child for process " + parentIndex);
 							break;
 						}
 					}
@@ -63,7 +63,7 @@ public class Test_V2 {
 				{
 					pcbArr2[olderChild].setOlder(j);	// updates the f_c older child
 					pcbArr2[j] = new PCB_V2(parentIndex, -1, olderChild, -1);	// creates a new child
-					System.out.println("3. Successfully created a child for process " + parentIndex);
+					System.out.println("Successfully created a child for process " + parentIndex);
 					break;
 				}
 			}
@@ -74,11 +74,30 @@ public class Test_V2 {
 		}
 	}
 	
+	private static void destroy(int destroyIndex)
+	{
+		int firstChild = pcbArr2[destroyIndex].getFirst();
+		if(firstChild != -1)	// if the destroyed index has a first child, then destroy the first child
+		{
+			pcbArr2[destroyIndex].setFirst(pcbArr2[firstChild].getOlder());
+	
+			destroy(firstChild);	
+			destroy(destroyIndex);
+		}
+		else
+		{
+			pcbArr2[destroyIndex] = null;
+			System.out.println("Successfully destroyed process " + destroyIndex);
+		}
+	}
+	
 	private static void test1()
 	{
 		System.out.println("Executing Test #1");
 		create(0);
 		create(0);
+		create(2);
 		create(0);
+		destroy(0);
 	}
 }

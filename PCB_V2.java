@@ -38,9 +38,19 @@ public class PCB_V2
     	return older_sibling;
     }
     
+    public void setParent(int curParent)
+    {
+    	parent = curParent;
+    }
+    
     public void setFirst(int first)
     {
     	first_child = first;
+    }
+    
+    public void setYounger(int young)
+    {
+    	younger_sibling = young;
     }
     
     public void setOlder(int old)
