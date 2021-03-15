@@ -5,9 +5,7 @@ public class Test_V2 {
 	
 	public static void main(String[] args)
 	{
-		PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating first PCB
-		pcbArr2[0] = pcb0;
-		test1();
+		runTest1(10);
 	}
 	
 	private static void create(int parentIndex)
@@ -99,5 +97,18 @@ public class Test_V2 {
 		create(2);
 		create(0);
 		destroy(0);
+	}
+	
+	private static void runTest1(int iterations)
+	{
+		PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating first PCB
+		pcbArr2[0] = pcb0;
+		
+		long start = System.nanoTime();
+		test1();
+		long end = System.nanoTime();
+		long runtime = end-start;
+		
+		System.out.println("The total runtime for Test 1 is: " + runtime);
 	}
 }
