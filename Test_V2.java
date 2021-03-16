@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileWriter;
+import java.util.Arrays;
 
 public class Test_V2 {
 	
@@ -137,6 +138,7 @@ public class Test_V2 {
 		createResultsFile(1);
 		for(int i=0; i<iterations; i++)
 		{
+			Arrays.fill(pcbArr2, null);
 			PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating first PCB
 			pcbArr2[0] = pcb0;
 			long start = System.nanoTime();
@@ -152,6 +154,7 @@ public class Test_V2 {
 		createResultsFile(2);
 		for(int i=0; i<iterations; i++)
 		{
+			Arrays.fill(pcbArr2, null);
 			PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating first PCB
 			pcbArr2[0] = pcb0;
 			long start = System.nanoTime();
@@ -167,6 +170,7 @@ public class Test_V2 {
 		createResultsFile(3);
 		for(int i=0; i<iterations; i++)
 		{
+			Arrays.fill(pcbArr2, null);
 			PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating first PCB
 			pcbArr2[0] = pcb0;
 			long start = System.nanoTime();
@@ -182,6 +186,7 @@ public class Test_V2 {
 		createResultsFile(4);
 		for(int i=0; i<iterations; i++)
 		{
+			Arrays.fill(pcbArr2, null);
 			PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating first PCB
 			pcbArr2[0] = pcb0;
 			long start = System.nanoTime();
