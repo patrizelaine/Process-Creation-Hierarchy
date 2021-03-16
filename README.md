@@ -11,7 +11,7 @@ This program simulates and compares the performance of process creation and dest
 
 ```
 Running Version 1 (with linked lists)
-1. Open Test_V1.java
+1. TestAppV1.java
 2. Run main() method
 3. Results will be found in the working or user directory.
 ```
