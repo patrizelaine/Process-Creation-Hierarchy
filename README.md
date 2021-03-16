@@ -6,7 +6,7 @@ This program simulates and compares the performance of process creation and dest
 - Teresita Esver
 - Alexa Tang
 
-## Steps to Run the Program
+## Running the Programs
 ***Note: We created two separate programs for version 1 and 2. You will have to run each program separately but both programs run the same 4 test cases***
 
 ```
