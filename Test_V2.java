@@ -1,11 +1,15 @@
+import java.io.File;
+import java.io.FileWriter;
+
 public class Test_V2 {
 	
-	static int length = 10;
+	static int length = 100;
 	private static PCB_V2[] pcbArr2 = new PCB_V2[length];
+	private static File resultsFile2;
 	
 	public static void main(String[] args)
 	{
-		runTest1(10);
+		runTest(1000);
 	}
 	
 	private static void create(int parentIndex)
@@ -19,6 +23,10 @@ public class Test_V2 {
 				{
 					for(int j=0; j<pcbArr2.length; j++)
 					{
+						if(pcbArr2[length-1] != null)
+						{
+							length = length*2;
+						}
 						if(pcbArr2[j]==null)
 						{
 							pcbArr2[parentIndex].setFirst(j);
@@ -32,6 +40,10 @@ public class Test_V2 {
 				{
 					for(int j=0; j<pcbArr2.length; j++)
 					{
+						if(pcbArr2[length-1] != null)
+						{
+							length = length*2;
+						}
 						if(pcbArr2[j]==null)
 						{
 							pcbArr2[checkChild].setOlder(j);	// updates the f_c older child
@@ -99,16 +111,44 @@ public class Test_V2 {
 		destroy(0);
 	}
 	
-	private static void runTest1(int iterations)
+	private static void runTest(int iterations)
 	{
-		PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating first PCB
-		pcbArr2[0] = pcb0;
-		
-		long start = System.nanoTime();
-		test1();
-		long end = System.nanoTime();
-		long runtime = end-start;
-		
-		System.out.println("The total runtime for Test 1 is: " + runtime);
+		createResultsFile(1);
+		for(int i=0; i<iterations; i++)
+		{
+			PCB_V2 pcb0 = new PCB_V2(-1, -1, -1, -1);	// creating first PCB
+			pcbArr2[0] = pcb0;
+			long start1 = System.nanoTime();
+			test1();
+			long end1 = System.nanoTime();
+			long runtime1 = end1-start1;
+			writeResultsToFile(runtime1);
+		}
+	}
+	
+	private static void createResultsFile(int testNumber)
+	{
+		try{
+            File dir = new File(System.getProperty("user.dir"));
+            resultsFile2 = new File(dir.getPath()+"/results_PCB_V1_Test"+testNumber+".csv");
+            FileWriter fw = new FileWriter(resultsFile2);
+            fw.write("Runtime (nsec)\n");
+            fw.close();
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+	}
+	
+	private static void writeResultsToFile(long runtime)
+	{
+		try{
+            FileWriter fw = new FileWriter(resultsFile2, true);
+            fw.write(String.valueOf(runtime)+"\n");
+            fw.close();
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
 	}
 }
