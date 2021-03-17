@@ -7,16 +7,54 @@
 *  Alexa Tang
 */
 
-//package Process-Creation_Hierarchy;
-
 public class PCB_V2
 {
-    private int parent, first_child, younger_sibling,oldest_sibling;
-    public PCB_V2(int p, int f_c, int y_s, int o_s)
+    private int parent, first_child, younger_sibling,older_sibling;
+    PCB_V2(int p, int f_c, int y_s, int o_s)
     {
-        parent=p;
-        first_child=f_c;
-        younger_sibling=y_s;
-        oldest_sibling=o_s;
+        parent = p;
+        first_child = f_c;
+        younger_sibling = y_s;
+        older_sibling = o_s;
+    }
+    
+    public int getParent()
+    {
+    	return parent;
+    }
+    
+    public int getFirst()
+    {
+    	return first_child;
+    }
+    
+    public int getYounger()
+    {
+    	return younger_sibling;
+    }
+    
+    public int getOlder()
+    {
+    	return older_sibling;
+    }
+    
+    public void setParent(int curParent)
+    {
+    	parent = curParent;
+    }
+    
+    public void setFirst(int first)
+    {
+    	first_child = first;
+    }
+    
+    public void setYounger(int young)
+    {
+    	younger_sibling = young;
+    }
+    
+    public void setOlder(int old)
+    {
+    	older_sibling = old;
     }
 }

@@ -11,16 +11,18 @@ import java.util.LinkedList;
 
 public class PCB_V1
 {
-    private int index_parent; //parent index in pcbArray
-    private LinkedList<Integer> children; //child is index in pcbArray
-
-    //parent index passed in constructor
+    private int index_parent;
+    //any processes created by the parent process are
+    //held in this linked list of child processes
+    LinkedList<Integer> children;
+    //constructor
     public PCB_V1(int p_i)
     {
         index_parent = p_i;
         children = new LinkedList<>();
     }
-    //add child to children
+
+    //add child to linked list of chldren
     public void addChild(int childIndex)
     {
         children.add(childIndex);
@@ -30,12 +32,17 @@ public class PCB_V1
     {
         return children;
     }
-    //get parent index
+
+    //get youngest child
+    public int getYoungestChildIndex(){
+        return children.size();
+    }
+
     public int getParentIndex(){
         return this.index_parent;
     }
-    //remove specific child
-    public void removeChild(Integer childIndex){
-        children.remove(childIndex);
+
+    public void removeFromLinkedList() {
+        children.remove(); //removes from head of list
     }
 }
