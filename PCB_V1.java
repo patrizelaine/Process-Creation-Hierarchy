@@ -1,35 +1,44 @@
 /* CS 4310
-*  Group Assignment #1
-*  
-*  Group Members:
-*  Teresita Leonor S. Esver 
-*  Patriz Elaine M. Daroy
-*  Alexa Tang
-*/
+ *  Group Assignment #1
+ *
+ *  Group Members:
+ *  Teresita Leonor S. Esver
+ *  Patriz Elaine M. Daroy
+ *  Alexa Tang
+ */
 
-package Process-Creation_Hierarchy;
 import java.util.LinkedList;
 
-public class PCB
+public class PCB_V1
 {
     private int index_parent;
+    private LinkedList<Integer> children;
 
-    //any processes created by the parent process are
-    //held in this linked list of child processes
-    LinkedList<PCB> children = new LinkedList<>();
-
-    PCB(int p_i)
+    public PCB_V1(int p_i)
     {
-        p_i = index_parent;
+        index_parent = p_i;
+        children = new LinkedList<>();
     }
 
-    public void addChild(PCB child)
+    //add child to linked list of children
+    public void addChild(int childIndex)
     {
-        children.add(child);
+        children.add(childIndex);
     }
-    
-    public LinkedList<PCB> getChildren()
+
+    //get children
+    public LinkedList<Integer> getChildren()
     {
         return children;
+    }
+
+    //get parent index
+    public int getParentIndex(){
+        return this.index_parent;
+    }
+
+    //remove child from linked list
+    public void removeChild(Integer childIndex) {
+        children.remove(childIndex);
     }
 }
