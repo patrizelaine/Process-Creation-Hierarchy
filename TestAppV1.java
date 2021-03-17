@@ -104,7 +104,7 @@ public class TestAppV1{
         create(1); //creates 1st child of pcbArr[1] at pcbArr[2]
         create(1); //creates 2nd child of pcbArr[1] at pcbArr[3]
         create(1); //creates 3rd child of pcbArr[1] at pcbArr[4]
-        destroy(0); //destroys process 0 and processes
+        destroy(0); //destroys process 0 and processes 1-4
     }
     private static void runTest1(int iterations){
         createResultsFile(1);
