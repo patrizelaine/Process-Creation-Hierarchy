@@ -82,17 +82,21 @@ public class Test_V2 {
 	private static void destroy(int destroyIndex)
 	{
 		int firstChild = pcbArr2[destroyIndex].getFirst();
-		if(firstChild != -1)	// if the destroyed index has a first child, then destroy the first child
+		if(firstChild != -1)	
 		{
-			pcbArr2[destroyIndex].setFirst(pcbArr2[firstChild].getOlder());	// updates the process's parent's first_child to the process's older_child
+			pcbArr2[destroyIndex].setFirst(pcbArr2[firstChild].getOlder());	
 	
 			destroy(firstChild);	
 			destroy(destroyIndex);
 		}
 		else
 		{
+			int parent = pcbArr2[destroyIndex].getParent();
+			if(parent!=-1)
+			{
+				pcbArr2[parent].setFirst(-1);
+			}
 			pcbArr2[destroyIndex] = null;
-			// System.out.println("Successfully destroyed process " + destroyIndex);
 		}
 	}
 	
@@ -100,9 +104,9 @@ public class Test_V2 {
 	{
 		create(0);
 		create(0);
+		create(1);
 		create(2);
-		create(0);
-		destroy(0);
+		destroy(1);
 	}
 	
 	private static void test2()
